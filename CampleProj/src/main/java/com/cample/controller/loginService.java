@@ -25,9 +25,9 @@ public class loginService extends HttpServlet {
 		
 		if (member!=null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("id", mem_id);
+			session.setAttribute("loginId", member);
 			System.out.println("로그인 한 아이디 : " + mem_id);
-			response.sendRedirect("main.html");
+			response.sendRedirect("main.jsp");
 		} else {
 			System.out.println("로그인 실패");
 			response.sendRedirect("login.html");
