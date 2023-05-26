@@ -5,18 +5,53 @@ create.addEventListener("click", () => {
 	const inputDiv = document.createElement("div");
 	const input = document.createElement("input");
 	const deleteBtn = document.createElement("button");
+	const updateBtn = document.createElement("button");
 
 	deleteBtn.classList.add("delete");
 	deleteBtn.innerText = "삭제";
+	updateBtn.classList.add("update");
+	updateBtn.innerText = "완료";
 
 	firstlist.appendChild(inputDiv);
-	inputDiv.setAttribute("id", "draggable");
+	inputDiv.setAttribute("id", Date.now());
 	inputDiv.setAttribute("draggable", "true");
 	inputDiv.appendChild(input);
 	inputDiv.appendChild(deleteBtn);
+	inputDiv.appendChild(updateBtn);
 
-	deleteBtn.addEventListener("click", () => {
+	deleteBtn.addEventListener("click", (event) => {
 		inputDiv.remove();
+		const id = event.target.parentNode.id;
+		$.ajax({
+			url: "./DeleteProj?id="+id,
+			success: function(data) {
+				console.log("success");
+			},
+			error: function(xhr, status) {
+				console.log("Failed");
+			},
+			complete: function(xhr, status) {
+				console.log("Complete");
+			}
+		});
+	});
+
+	updateBtn.addEventListener("click", (event) => {
+		const id = event.target.parentNode.id;
+		const status = event.target.parentNode.parentNode.id;
+		const content = event.target.parentNode.children[0].value;
+		$.ajax({
+			url: "./AddUpdateProj?id="+id+"&status="+status+"&content="+content,
+			success: function(data) {
+				console.log("success");
+			},
+			error: function(xhr, status) {
+				console.log("Failed");
+			},
+			complete: function(xhr, status) {
+				console.log("Complete");
+			}
+		});
 	});
 });
 

@@ -42,8 +42,8 @@
 										<%
 											CPMemberDTO loginId =(CPMemberDTO)session.getAttribute("loginId");
 											if (loginId != null) {
-												System.out.print(loginId.getMem_id());
-												System.out.print(loginId.getMem_college());
+												System.out.println(loginId.getMem_id());
+												System.out.println(loginId.getMem_college());
 											}
 										%>
 										<%
@@ -99,7 +99,7 @@
 														<%}
 												}
 										%>
-										<li><a href="elements.html" class="a">일정관리</a></li>
+										<li><a href="Kanban.jsp" class="a">일정관리</a></li>
 										<li><a href="elements.html" class="a">캘린더</a></li>
 										<li>
 											<span class="opener">게시판</span>
