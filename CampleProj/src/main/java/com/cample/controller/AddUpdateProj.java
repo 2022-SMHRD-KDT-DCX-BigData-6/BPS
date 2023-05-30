@@ -16,8 +16,9 @@ import com.cample.model.CPProjectDAO;
  */
 @WebServlet("/AddUpdateProj")
 public class AddUpdateProj extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		HttpSession session = request.getSession();
 		CPMemberDTO member = (CPMemberDTO) session.getAttribute("loginId");
 		// 로그인 되어 있는지 확인

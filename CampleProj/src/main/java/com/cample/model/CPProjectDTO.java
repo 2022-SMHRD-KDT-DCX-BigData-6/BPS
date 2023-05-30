@@ -6,11 +6,9 @@ public class CPProjectDTO {
 	private String status;
 	private String content;
 	private String writer;
-	public String getId() {
-		return id;
-	}
 	
-	
+	public CPProjectDTO() {}
+
 	public CPProjectDTO(String id, String status, String content, String writer) {
 		super();
 		this.id = id;
@@ -19,6 +17,9 @@ public class CPProjectDTO {
 		this.writer = writer;
 	}
 
+	public String getId() {
+		return id;
+	}
 
 	public void setId(String id) {
 		this.id = id;

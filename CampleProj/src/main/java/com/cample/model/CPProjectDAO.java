@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CPProjectDAO {
 
@@ -53,6 +54,7 @@ public class CPProjectDAO {
 		boolean check = false;
 		try {
 			String sql = "SELECT * from cp_proj where id = ?";
+			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			
@@ -73,6 +75,7 @@ public class CPProjectDAO {
 		int result = 0;
 		try {
 			String sql = "INSERT INTO cp_proj VALUES(?, ?, ?, ?)";
+			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, status);
@@ -98,6 +101,7 @@ public class CPProjectDAO {
 		int result = 0;
 		try {
 			String sql = "UPDATE cp_proj set status = ?, content = ?, writer = ? where id = ?";
+			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, status);
 			psmt.setString(2, content);
@@ -132,6 +136,36 @@ public class CPProjectDAO {
 		}
 		
 		return result;
+	}
+	
+	public ArrayList<CPProjectDTO> SelectAllProj (String writer) {
+		connect();
+		ArrayList<CPProjectDTO> projList = new ArrayList<>();
+		
+		try {
+			String sql = "SELECT * FROM cp_proj WHERE writer = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, writer);
+			
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				CPProjectDTO proj = new CPProjectDTO();
+				proj.setId(rs.getString(1));
+				proj.setStatus(rs.getString(2));
+				proj.setContent(rs.getString(3));
+				proj.setWriter(rs.getString(4));
+				
+				projList.add(proj);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return projList;
+		
 	}
 
 }
