@@ -38,7 +38,6 @@
 		System.out.println(member.getMem_id());
 		projList = dao.SelectAllProj(member.getMem_id());
 	}
-	System.out.println(projList.toString());
 %>
 <script>
 	const listBox = document.getElementById("create");
@@ -49,12 +48,12 @@
 	const input = new Array(<%= projList.size()%>); 
 	const deleteBtn = new Array(<%= projList.size()%>);
 	const updateBtn = new Array(<%= projList.size()%>);
-	deleteBtn.innerText = "삭제";
-	updateBtn.innerText = "완료";
+
 	<% for (int i = 0; i < projList.size(); i++ ) { %>
 		div[<%=i%>] = document.createElement("div");
 		div[<%=i%>].setAttribute("id", <%= projList.get(i).getId()%>)
 		div[<%=i%>].setAttribute("draggable", "true");
+		div[<%=i%>].setAttribute("class", "drag");
 		<% if (projList.get(i).getStatus().equals("create")){ %>
 			listBox.appendChild(div[<%=i%>]);
 		<%} else if (projList.get(i).getStatus().equals("todo")) {%>
@@ -73,15 +72,15 @@
 		updateBtn[<%=i%>] = document.createElement("button");
 		deleteBtn[<%=i%>].classList.add("delete");
 		updateBtn[<%=i%>].classList.add("update");
-		deleteBtn[<%=i%>].innerText = "삭제";
-		updateBtn[<%=i%>].innerText = "완료";
+		deleteBtn[<%=i%>].innerText = "X";
+		updateBtn[<%=i%>].innerText = "✔";
 
 		div[<%=i%>].appendChild(deleteBtn[<%=i%>]);
 		div[<%=i%>].appendChild(updateBtn[<%=i%>]);
 		
 		
 		deleteBtn[<%=i%>].addEventListener("click", (event) => {
-			inputDiv.remove();
+			div[<%=i%>].remove();
 			const id = event.target.parentNode.id;
 			$.ajax({
 				url: "./DeleteProj?id="+id,

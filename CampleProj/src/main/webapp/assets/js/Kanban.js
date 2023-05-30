@@ -8,13 +8,14 @@ create.addEventListener("click", () => {
 	const updateBtn = document.createElement("button");
 
 	deleteBtn.classList.add("delete");
-	deleteBtn.innerText = "삭제";
+	deleteBtn.innerText = "X";
 	updateBtn.classList.add("update");
-	updateBtn.innerText = "완료";
+	updateBtn.innerText = "✔";
 
 	firstlist.appendChild(inputDiv);
 	inputDiv.setAttribute("id", Date.now());
 	inputDiv.setAttribute("draggable", "true");
+	inputDiv.setAttribute("class", "drag");
 	inputDiv.appendChild(input);
 	inputDiv.appendChild(deleteBtn);
 	inputDiv.appendChild(updateBtn);

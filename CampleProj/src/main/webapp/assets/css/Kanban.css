@@ -16,36 +16,38 @@ body {
 	background-color: #0097e6;
 }
 
-/* #draggable {
+.drag {
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 	background: #fbc531;
-	padding: 1px;
 	margin-bottom: 10px;
 	margin-top: 10px;
-} */
+}
 
 .delete {
 	background: #c23616;
 	color: #fff;
-	border-radius: 10px;
-	width: 50px;
-	height: 32px;
+	border-radius: 5px;
+	width: 30px;
+	height: 25px;
 	border: none;
 	cursor: pointer;
+	margin-left: 5px;
 }
 
 .update {
-	background: rgb(255, 128, 64);
+	background: rgb(32, 137, 2);
 	color: #fff;
-	border-radius: 10px;
-	width: 50px;
-	height: 32px;
+	border-radius: 5px;
+	width: 30px;
+	height: 25px;
 	border: none;
 	cursor: pointer;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 #create {
@@ -100,12 +102,10 @@ input {
 	width: 100%;
 	border: none;
 	outline: none;
-	font-size: 15px;
+	font-size: 1rem;
 	padding: 7px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
-	overflow: scroll;
-  	text-overflow: ellipsis;
 }
 
 .dropzone.dragover {
