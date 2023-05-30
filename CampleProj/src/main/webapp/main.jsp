@@ -100,7 +100,7 @@
 												}
 										%>
 										<li><a href="Kanban.jsp" class="a">일정관리</a></li>
-										<li><a href="elements.html" class="a">캘린더</a></li>
+										<li><a href="campleCalendar.jsp" class="a">캘린더</a></li>
 										<li>
 											<span class="opener">게시판</span>
 											<ul>
