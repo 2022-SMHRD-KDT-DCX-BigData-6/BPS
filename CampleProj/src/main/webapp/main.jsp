@@ -104,7 +104,7 @@
 										<li>
 											<span class="opener">게시판</span>
 											<ul>
-												<li><a href="#">자유게시판</a></li>
+												<li><a href="BoardMain.jsp">자유게시판</a></li>
 												<li><a href="#">홍보게시판</a></li>
 												<li><a href="#">정보게시판</a></li>
 											</ul>
