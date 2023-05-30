@@ -18,9 +18,9 @@ public class CPProjectDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String user = "scott";
-			String password = "1234";
+			String url = "jdbc:oracle:thin:@project-db-stu.smhrd.com:1524:xe";
+			String user = "seogu_0526_4";
+			String password = "smhrd4";
 			conn = DriverManager.getConnection(url, user, password);
 			System.out.println(conn != null ? "DB연결성공" : "DB연결실패");
 
