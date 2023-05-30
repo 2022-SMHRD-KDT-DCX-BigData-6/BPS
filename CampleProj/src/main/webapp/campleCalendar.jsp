@@ -8,8 +8,8 @@
 <html>
 <head>
 <meta charset='utf-8' />
-<link href='calMain.css' rel='stylesheet' />
-<script src='calMain.js'></script>
+<link href='assets/css/calMain.css' rel='stylesheet' />
+<script src='assets/js/calMain.js'></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 
@@ -72,21 +72,22 @@
       eventClick: function(arg) {
         if (confirm('Are you sure you want to delete this event?')) {
           arg.event.remove()
+          
+	        $.ajax({
+	            url: "calendarDeleteService",
+	            data: {'title':arg.event.title},
+	            success: function(data) {
+	               console.log("success");
+	            },
+	            error: function(xhr, status) {
+	               console.log("Failed");
+	            },
+	            complete: function(xhr, status) {
+	               console.log("Complete");
+	            }
+	        });
         }
         
-        $.ajax({
-            url: "calendarDeleteService",
-            data: {'title':arg.event.title},
-            success: function(data) {
-               console.log("success");
-            },
-            error: function(xhr, status) {
-               console.log("Failed");
-            },
-            complete: function(xhr, status) {
-               console.log("Complete");
-            }
-        });
         
         
       },
