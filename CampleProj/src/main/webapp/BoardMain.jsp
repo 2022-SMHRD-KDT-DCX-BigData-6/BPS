@@ -39,16 +39,13 @@
          	select * from webboard order by b_date desc -->
          	<%
          	//session 값 가져오기
-         	         			CPMemberDTO member=(CPMemberDTO)session.getAttribute("loginId");
-         	         								/*  if(member!=null){
-         	         								System.out.print(member.getEmail());	
-         	         												}   */
+      			CPMemberDTO member=(CPMemberDTO)session.getAttribute("loginId");
+         		ArrayList<CPBoardDTO> board_list = new ArrayList<>();
+         		if (member != null) {
+			 		CPBoardDAO dao = new CPBoardDAO();
+         			board_list= dao.selall(member.getMem_college());
+         		}
          	%>
-												
-												
-         	<%
-				 	List<CPBoardDTO> board_list= new CPBoardDAO().selall(member.getMem_college());
-																								         	%>
          	
          <!-- Q18. 게시글 목록 세부페이지 기능(제목을 클릭하면 세부페이지 BoardDetail.jsp로 이동)-->
          <div id="board">

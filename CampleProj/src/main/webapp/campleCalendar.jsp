@@ -13,13 +13,15 @@
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 
-	<%
+<%
 	CPMemberDTO member = (CPMemberDTO) session.getAttribute("loginId");
 	
 	ArrayList<CPCalendarDTO> calendarList = new ArrayList<>();
-	CPCalendarDAO cpDao = new CPCalendarDAO();
-	calendarList = cpDao.selectAllCalendar(member.getMem_id());
-	%>
+	if (member != null) {
+		CPCalendarDAO cpDao = new CPCalendarDAO();
+		calendarList = cpDao.selectAllCalendar(member.getMem_id());
+	}
+%>
 
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -49,9 +51,8 @@
               url: "calendarInsertService",
               data: {
             	'title':title,  
-            	'start':arg.start,
-            	'end':arg.end,
-            	'id':"<%=member.getMem_id()%>"
+            	'start':arg.startStr,
+            	'end':arg.endStr,
               },
               success: function(data) {
                  console.log("success");
