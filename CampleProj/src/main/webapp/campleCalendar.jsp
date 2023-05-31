@@ -71,29 +71,29 @@ if (member != null) {
   	 eventDrop: function(info){
   		console.log(info);
   		if(confirm("'"+info.event.title + "' 일정을 수정 하시겠습니까?")){
+	 		title = info.event._def.title;
+	  		start = info.event._instance.range.start;
+	  		end = info.event._instance.range.end;
+	  		
+	  		$.ajax({
+	             url: "calendarUpdateService",
+	             data: {
+	             	'title' : info.event._def.title,
+	             	'start' : info.event._instance.range.start,
+	             	'end' : info.event._instance.range.end
+	             },
+	             success: function(data) {
+	                console.log("success");
+	             },
+	             error: function(xhr, status) {
+	                console.log("Failed");
+	             },
+	             complete: function(xhr, status) {
+	                console.log("Complete");
+	             }
+	         });
   			
   		}
- 		title = info.event._def.title;
-  		start = info.event._instance.range.start;
-  		end = info.event._instance.range.end;
-  		
-  		$.ajax({
-             url: "calendarUpdateService",
-             data: {
-             	'title' : info.event._def.title,
-             	'start' : info.event._instance.range.start,
-             	'end' : info.event._instance.range.end
-             },
-             success: function(data) {
-                console.log("success");
-             },
-             error: function(xhr, status) {
-                console.log("Failed");
-             },
-             complete: function(xhr, status) {
-                console.log("Complete");
-             }
-         });
   		
   		
   	},
