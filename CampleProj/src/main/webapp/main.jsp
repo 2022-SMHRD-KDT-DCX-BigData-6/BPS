@@ -22,6 +22,21 @@
 								<header id="header">
 									<strong class="f">HomePage</strong>
 									<ul class="icons">
+										<%
+											CPMemberDTO loginId =(CPMemberDTO)session.getAttribute("loginId");
+											if (loginId != null) {
+												System.out.println(loginId.getMem_id());
+												System.out.println(loginId.getMem_college());
+											}
+										%>
+										<%
+											if (loginId == null) {%>
+												<li><a href="login.html" class="button">LOGIN</a></li>
+											<%} else { %>
+												<li class="a"><%=loginId.getMem_id() + "님 환영합니다." %></li>
+												<li><a href="logoutService" class="button">LOGOUT</a></li>
+											<%}
+										%>
 										<li><a href="https://twitter.com" target=”_blank” class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="https://www.facebook.com/" target=”_blank” class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 										<li><a href="https://www.youtube.com/" target=”_blank” class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
@@ -39,21 +54,6 @@
 										</header>
 										<p class="a">대학생들을 위한 학업관리 서비스 입니다.<br> 학생들끼리의 팀 프로젝트나 개인의 프로젝트를 관리하고 게시판 서비스를 통해 <br>자유로운 소통을 해 보세요.</p>
 										<ul class="actions">
-										<%
-											CPMemberDTO loginId =(CPMemberDTO)session.getAttribute("loginId");
-											if (loginId != null) {
-												System.out.println(loginId.getMem_id());
-												System.out.println(loginId.getMem_college());
-											}
-										%>
-										<%
-											if (loginId == null) {%>
-												<li><a href="login.html" class="button">LOGIN</a></li>
-											<%} else { %>
-												<li><a href="logoutService" class="button">LOGOUT</a></li>
-												<li><%=loginId.getMem_id() + "님 환영합니다." %></li>
-											<%}
-										%>
 										</ul>
 									</div>
 									<span class="image object">
