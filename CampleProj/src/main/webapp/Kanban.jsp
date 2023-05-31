@@ -12,20 +12,20 @@
 <link rel="stylesheet" href="assets/css/Kanban.css" />
 </head>
 <body>
-	<h1>Kanban Board</h1>
-	<button id="add">Add Card</button>
+	<h1>Project Management</h1>
+	<button id="add">추가</button>
 	<div class="dropzone-container">
 		<div class="dropzone" id="create">
-			<h3>list</h3>
+			<h3 class="list">List</h3>
 		</div>
 		<div class="dropzone" id="todo">
-			<h3>todo</h3>
+			<h3 class="todo">To-Do</h3>
 		</div>
 		<div class="dropzone" id="inprogress">
-			<h3>In Progress</h3>
+			<h3 class="inprogress">In-Progress</h3>
 		</div>
 		<div class="dropzone" id="done">
-			<h3>done</h3>
+			<h3 class="done">Completed</h3>
 		</div>
 	</div>
 </body>
