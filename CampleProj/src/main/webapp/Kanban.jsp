@@ -62,7 +62,7 @@
 			inprogressBox.appendChild(div[<%=i%>]);
 		<%} else if (projList.get(i).getStatus().equals("done")) {%>
 			doneBox.appendChild(div[<%=i%>]);
-		<%}%>
+	<%}%>
 		
 		input[<%=i%>] = document.createElement("input");
 		div[<%=i%>].appendChild(input[<%=i%>]);
