@@ -42,7 +42,9 @@ public class calendarInsertService extends HttpServlet {
 			} else {
 				System.out.println("일정 등록 실패");
 			}
-		}		
+		} else {
+			System.out.println("로그인을 해주세요~!");
+		}
 	}
 }
 
