@@ -125,6 +125,27 @@ public class CPCalendarDAO {
 		return 0;
 	}
 	
+	public int UpdateCalendar(String calendar_title,String calendar_start,String calendar_end) {
+		connect();
+		
+		try {
+			String sql = "UPDATE cp_calendar SET calendar_start = ?, calendar_end = ? WHERE calendar_title=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, calendar_start);
+			psmt.setString(2, calendar_end);
+			psmt.setString(3, calendar_title);
+			
+			int result = psmt.executeUpdate();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		
+		return 0;
+	}
+	
 	
 
 }

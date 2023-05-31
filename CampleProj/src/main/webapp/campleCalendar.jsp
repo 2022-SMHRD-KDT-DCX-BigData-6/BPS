@@ -13,15 +13,13 @@
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 
-<%
-	CPMemberDTO member = (CPMemberDTO) session.getAttribute("loginId");
-	
-	ArrayList<CPCalendarDTO> calendarList = new ArrayList<>();
-	if (member != null) {
-		CPCalendarDAO cpDao = new CPCalendarDAO();
-		calendarList = cpDao.selectAllCalendar(member.getMem_id());
-	}
-%>
+<%CPMemberDTO member = (CPMemberDTO) session.getAttribute("loginId");
+
+ArrayList<CPCalendarDTO> calendarList = new ArrayList<>();
+if (member != null) {
+	CPCalendarDAO cpDao = new CPCalendarDAO();
+	calendarList = cpDao.selectAllCalendar(member.getMem_id());
+}%>
 
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -69,6 +67,37 @@
         calendar.unselect()
       },
       
+   // 일정수정
+  	 eventDrop: function(info){
+  		console.log(info);
+  		if(confirm("'"+info.event.title + "' 일정을 수정 하시겠습니까?")){
+  			
+  		}
+ 		title = info.event._def.title;
+  		start = info.event._instance.range.start;
+  		end = info.event._instance.range.end;
+  		
+  		$.ajax({
+             url: "calendarUpdateService",
+             data: {
+             	'title' : info.event._def.title,
+             	'start' : info.event._instance.range.start,
+             	'end' : info.event._instance.range.end
+             },
+             success: function(data) {
+                console.log("success");
+             },
+             error: function(xhr, status) {
+                console.log("Failed");
+             },
+             complete: function(xhr, status) {
+                console.log("Complete");
+             }
+         });
+  		
+  		
+  	},
+      
       // 일정 삭제
       eventClick: function(arg) {
         if (confirm('Are you sure you want to delete this event?')) {
@@ -103,60 +132,7 @@
       		end: '<%=calendarList.get(i).getCalendar_end()%>'
       	},
       	<%}%>
-         /* {
-          title: 'All Day Event',
-          start: '2020-09-01'
-        },
-        {
-          title: 'Long Event',
-          start: '2020-09-07',
-          end: '2020-09-10'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-09-09T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-09-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2020-09-11',
-          end: '2020-09-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-09-12T10:30:00',
-          end: '2020-09-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2020-09-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-09-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2020-09-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2020-09-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2020-09-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2020-09-28'
-        }  */
+        
       ]
     });
 
