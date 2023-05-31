@@ -85,17 +85,19 @@
 										<h2 class="b">Menu</h2>
 									</header>
 									<ul>
-										<li><a href="main.html" class="a">홈페이지</a></li>
+										<li><a href="main.jsp" class="a">홈페이지</a></li>
 										<%
 											if (loginId == null) {%>
-												<li><a href="generic.html" class="a">대학교</a></li>
+												<li><a href="generic.html" class="a">학교 별 학과 일정</a></li>
 												<%} else {
 														if (loginId.getMem_college().equals("전남대학교")){%>
-															<li><a href="generic.html" class="a">전남대학교</a></li>
+															<li><a href="전남대학교_페이지.html" class="a">전남대학교</a></li>
 														<%} else if (loginId.getMem_college().equals("서울대학교")) {%>
-															<li><a href="generic.html" class="a">서울대학교</a></li>
+															<li><a href="서울대학교_페이지.html" class="a">서울대학교</a></li>
+														<%} else if (loginId.getMem_college().equals("광주대학교")) {%>
+															<li><a href="광주대학교_페이지.html" class="a">광주대학교</a></li>
 														<%} else {%>
-															<li><a href="generic.html" class="a">대학교</a></li>
+															<li><a href="generic.html" class="a">학교 별 학과일정</a></li>
 														<%}
 												}
 										%>
