@@ -37,7 +37,7 @@
 											<h1 class="d"><span class="e">C</span><span class="e">A</span><span class="e">M</span><span class="e">P</span><span class="e">L</span><span class="e"></span><span class="e">E</span></h1>
 											<p class="c">대학생 위주의 협업 프로그램</p>
 										</header>
-										<p class="a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra</p>
+										<p class="a">대학생들을 위한 학업관리 서비스 입니다.<br> 학생들끼리의 팀 프로젝트나 개인의 프로젝트를 관리하고 게시판 서비스를 통해 <br>자유로운 소통을 해 보세요.</p>
 										<ul class="actions">
 										<%
 											CPMemberDTO loginId =(CPMemberDTO)session.getAttribute("loginId");
