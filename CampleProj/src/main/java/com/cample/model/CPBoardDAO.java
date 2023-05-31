@@ -49,19 +49,6 @@ public class CPBoardDAO {
 		}	
 	}
 	
-	
-	
-	
-	
-	/*
-	 * public int boardUpload(boardDTO dto) { connect(); int cnt=0; try { String
-	 * sql="insert into webboard2(num,title,writer,filename,content,b_date) values(?,?,?,?,?,?)"
-	 * ; psmt=conn.prepareStatement(sql); psmt.setString(1, dto.getNum());
-	 * psmt.setString(2, dto.getTitle()); psmt.setString(3, dto.getWriter());
-	 * psmt.setString(4, dto.getFilename()); psmt.setString(5, dto.getContent());
-	 * psmt.setString(6, dto.getB_date()); cnt=psmt.executeUpdate(); } catch
-	 * (Exception e) { // TODO: handle exception }finally { close(); } return cnt; }
-	 */
 	public int boardUpload(CPBoardDTO dto, String campus) {
 		connect();
 		int cnt=0;
@@ -74,10 +61,7 @@ public class CPBoardDAO {
 			
 			psmt.setString(4, dto.getContent());
 			psmt.setString(5, campus);
-			
-			
-			
-			
+
 			cnt=psmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -87,61 +71,6 @@ public class CPBoardDAO {
 		return cnt;
 	}
 	
-	/*
-	 * public int boardUpload2(boardDTO dto) { connect(); int cnt=0; try { String
-	 * sql="insert into webboard3(num,title,writer,filename,content,b_date) values(?,?,?,?,?,?)"
-	 * ; psmt=conn.prepareStatement(sql); psmt.setString(1, dto.getNum());
-	 * psmt.setString(2, dto.getTitle()); psmt.setString(3, dto.getWriter());
-	 * psmt.setString(4, dto.getFilename()); psmt.setString(5, dto.getContent());
-	 * psmt.setString(6, dto.getB_date()); cnt=psmt.executeUpdate(); } catch
-	 * (Exception e) { // TODO: handle exception }finally { close(); } return cnt; }
-	 */
-	
-	
-	 
-	
-	/*
-	 * ArrayList<boardDTO> boardlist = null; public ArrayList<boardDTO> selall(){
-	 * connect(); boardlist=new ArrayList<>();
-	 * 
-	 * try { String sql="select * from webboard2"; psmt =
-	 * conn.prepareStatement(sql);
-	 * 
-	 * rs = psmt.executeQuery();
-	 * 
-	 * while (rs.next()) { boardDTO mDto = new boardDTO();
-	 * mDto.setNum(rs.getString("num")); mDto.setTitle(rs.getString("title"));
-	 * mDto.setWriter(rs.getString("writer"));
-	 * mDto.setFilename(rs.getString("filename"));
-	 * mDto.setContent(rs.getString("content"));
-	 * mDto.setB_date(rs.getString("b_date"));
-	 * 
-	 * boardlist.add(mDto); } } catch (Exception e) { e.printStackTrace(); } finally
-	 * { close(); } return boardlist;
-	 * 
-	 * }
-	 */
-	
-	/*
-	 * ArrayList<boardDTO> boardlist = null; public ArrayList<boardDTO> selall(){
-	 * connect(); boardlist=new ArrayList<>();
-	 * 
-	 * try { String sql="select * from webboard4"; psmt =
-	 * conn.prepareStatement(sql);
-	 * 
-	 * rs = psmt.executeQuery();
-	 * 
-	 * while (rs.next()) { boardDTO mDto = new boardDTO();
-	 * mDto.setNum(rs.getString("num")); mDto.setTitle(rs.getString("title"));
-	 * mDto.setWriter(rs.getString("writer"));
-	 * mDto.setContent(rs.getString("content"));
-	 * 
-	 * 
-	 * boardlist.add(mDto); } } catch (Exception e) { e.printStackTrace(); } finally
-	 * { close(); } return boardlist;
-	 * 
-	 * }
-	 */
 	
 	ArrayList<CPBoardDTO> boardlist = null;
 	
@@ -164,8 +93,6 @@ public class CPBoardDAO {
 				mDto.setWriter(rs.getString("writer"));
 				mDto.setContent(rs.getString("content"));
 				
-				
-
 				boardlist.add(mDto);
 			}
 		} catch (Exception e) {
@@ -176,25 +103,6 @@ public class CPBoardDAO {
 		return boardlist;
 		
 	}
-	
-	
-	 
-	
-	
-	/*
-	 * public boardDTO getboard(String num) { boardDTO mDto = null; connect(); try {
-	 * String sql="select * from webboard2 where num=?";
-	 * psmt=conn.prepareStatement(sql); psmt.setString(1, num);
-	 * rs=psmt.executeQuery(); if(rs.next()) {
-	 * System.out.println("======================"); mDto = new boardDTO();
-	 * 
-	 * mDto.setNum(rs.getString("num")); mDto.setTitle(rs.getString("title"));
-	 * mDto.setWriter(rs.getString("writer"));
-	 * mDto.setFilename(rs.getString("filename"));
-	 * mDto.setContent(rs.getString("content"));
-	 * mDto.setB_date(rs.getString("b_date")); } } catch (Exception e) { // TODO:
-	 * handle exception } return mDto; }
-	 */
 	
 	public CPBoardDTO getboard(String num) {
 		CPBoardDTO mDto = null;
@@ -219,21 +127,4 @@ public class CPBoardDAO {
 		}
 		return mDto;
 	}
-	
-	/*
-	 * public boardDTO getboard2(String num) { boardDTO mDto = null; connect(); try
-	 * { String sql="select * from webboard3 where num=?";
-	 * psmt=conn.prepareStatement(sql); psmt.setString(1, num);
-	 * rs=psmt.executeQuery(); if(rs.next()) {
-	 * System.out.println("======================"); mDto = new boardDTO();
-	 * 
-	 * mDto.setNum(rs.getString("num")); mDto.setTitle(rs.getString("title"));
-	 * mDto.setWriter(rs.getString("writer"));
-	 * mDto.setFilename(rs.getString("filename"));
-	 * mDto.setContent(rs.getString("content"));
-	 * mDto.setB_date(rs.getString("b_date")); } } catch (Exception e) { // TODO:
-	 * handle exception } return mDto; }
-	 */
-	
-	
 }

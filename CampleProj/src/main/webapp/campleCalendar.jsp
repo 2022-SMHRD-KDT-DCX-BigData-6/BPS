@@ -42,8 +42,8 @@
         if (title) {
           calendar.addEvent({
             title: title,
-            start: arg.startStr,
-            end: arg.endStr,
+            start: arg.start,
+            end: arg.end,
             allDay: arg.allDay
           })
           
@@ -51,8 +51,8 @@
               url: "calendarInsertService",
               data: {
             	'title':title,  
-            	'start':arg.start,
-            	'end':arg.end,
+            	'start':arg.startStr,
+            	'end':arg.endStr,
               },
               success: function(data) {
                  console.log("success");
