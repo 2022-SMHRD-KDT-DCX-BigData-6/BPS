@@ -16,9 +16,8 @@
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
-	}
-
-	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		
+	}article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
 
@@ -1623,10 +1622,12 @@
 	}
 
 	 body {
-		background: #242943;
+  /* background-image: url("../images/Untitled design (1).png"); */
+  background: #ffffff;
+	
 	} 
-
-		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
+	
+	body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
 			-ms-animation: none !important;
@@ -1636,11 +1637,8 @@
 			-ms-transition: none !important;
 			transition: none !important;
 		}
-
-/* Type */
-
-	body, input, select, textarea {
-		color: #ffffff;
+		body, input, select, textarea {
+		color: #080808;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 17pt;
 		font-weight: 300;
@@ -1692,7 +1690,7 @@
 		}
 
 	strong, b {
-		color: #ffffff;
+		color: #080808;
 		font-weight: 600;
 	}
 
@@ -1705,7 +1703,7 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #ffffff;
+		color: #080808;
 		font-weight: 600;
 		line-height: 1.65;
 		margin: 0 0 1em 0;
@@ -1818,8 +1816,8 @@
 	.align-right {
 		text-align: right;
 	}
-
-/* Section/Article */
+	
+	/* Section/Article */
 
 	section.special, article.special {
 		text-align: center;
@@ -1840,7 +1838,7 @@
 
 			header.major > :first-child:after {
 				content: '';
-				background-color: #ffffff;
+				background-color: #080808;
 				display: block;
 				height: 2px;
 				margin: 0.325em 0 0.5em 0;
@@ -1870,8 +1868,7 @@
 		}
 
 	}
-
-/* Form */
+	/* Form */
 
 	form {
 		margin: 0 0 2em 0;
@@ -1930,7 +1927,7 @@
 		}
 
 	label {
-		color: #ffffff;
+		color: #080808;
 		display: block;
 		font-size: 0.8em;
 		font-weight: 600;
@@ -2049,7 +2046,7 @@
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;
-			color: #ffffff;
+			color: #080808;
 			cursor: pointer;
 			display: inline-block;
 			font-weight: 300;
@@ -2085,7 +2082,7 @@
 
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
-			background: #ffffff;
+			background:#080808;
 			border-color: #9bf1ff;
 			content: '\f00c';
 			color: #242943;
@@ -2124,8 +2121,7 @@
 		color: rgba(244, 244, 255, 0.2) !important;
 		opacity: 1.0;
 	}
-
-/* Box */
+	/* Box */
 
 	.box {
 		border: solid 1px rgba(212, 212, 255, 0.1);
@@ -2167,7 +2163,7 @@
 		}
 
 		.icon.alt:before {
-			background-color: #ffffff;
+			background-color: #080808;
 			border-radius: 100%;
 			color: #242943;
 			display: inline-block;
@@ -2405,7 +2401,7 @@
 				}
 
 					ul.pagination li > .page.active {
-						background-color: #ffffff;
+						background-color: #080808;
 						color: #242943;
 					}
 
@@ -2451,8 +2447,7 @@
 		dl dd {
 			margin-left: 2em;
 		}
-
-/* Table */
+		/* Table */
 
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;
@@ -2479,7 +2474,7 @@
 		}
 
 		table th {
-			color: #ffffff;
+			color: #080808;
 			font-size: 0.9em;
 			font-weight: 600;
 			padding: 0 0.75em 0.75em 0.75em;
@@ -2538,8 +2533,8 @@
 		background-color: transparent;
 		border: 0;
 		border-radius: 0;
-		box-shadow: inset 0 0 0 2px #ffffff;
-		color: #ffffff;
+		box-shadow: inset 0 0 0 2px #080808;
+		color: #080808;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.8em;
@@ -2695,7 +2690,7 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #ffffff;
+			background-color: #080808;
 			box-shadow: none;
 			color: #242943;
 		}
@@ -2737,8 +2732,7 @@
 			cursor: default;
 			opacity: 0.25;
 		}
-
-/* Tiles */
+		/* Tiles */
 
 	.tiles {
 		display: -moz-flex;
@@ -3085,8 +3079,7 @@
 			}
 
 		}
-
-/* Header */
+		/* Header */
 
 	@-moz-keyframes reveal-header {
 		0% {
@@ -3136,12 +3129,12 @@
 		}
 	}
 
-	#header {
+	 #header {
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		background-color: #2a2f4a;
+		background-color: #ffffff;
 		box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.15);
 		cursor: default;
 		font-weight: 600;
@@ -3155,7 +3148,7 @@
 		top: 0;
 		width: 100%;
 		z-index: 10000;
-	}
+	} 
 
 		#header .logo {
 			border: 0;
@@ -3171,7 +3164,7 @@
 				-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 				-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 				transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-				background-color: #ffffff;
+				background-color: #080808;
 				color: #242943;
 				display: inline-block;
 				line-height: 1.65em;
@@ -3615,8 +3608,7 @@
 				}
 
 		}
-
-/* Main */
+		/* Main */
 
 	#main {
 		background-color: #2a2f4a;

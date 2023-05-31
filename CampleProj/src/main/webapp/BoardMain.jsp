@@ -16,13 +16,24 @@
       <meta charset="utf-8" />
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-       <link rel="stylesheet" href="assets/css1/main.css" /> 
+        <!-- <link rel="stylesheet" href="assets/css1/main.css" /> -->
       <link rel="stylesheet" href="assets/css1/board.css" />
+      <link rel="stylesheet" href="assets/css/main.css" />
       <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
       <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
       
 </head>
-<body>      
+<body>   
+<header id="header">
+									<strong class="f">HomePage</strong>
+									<ul class="icons">
+										<li><a href="https://twitter.com" target=”_blank” class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://www.facebook.com/" target=”_blank” class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="https://www.youtube.com/" target=”_blank” class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
+										<li><a href="https://www.instagram.com/" target=”_blank” class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://github.com/" target=”_blank” class="icon brands fa-brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+								</header>   
          <!-- Q17. 게시글 목록 조회 기능 -->
          <!-- webboard 테이블에 있는 모든 게시글 출력
          	select * from webboard order by b_date desc -->
