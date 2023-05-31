@@ -20,6 +20,10 @@
     font-style: normal;
 }
 
+.ctype{
+	text-indent:30px;
+}
+
 .button {
   
   height: 100%;
@@ -90,6 +94,11 @@ body:hover .e { animation:bounce .6s; }
 	font-family: 'Pretendard-Regular';
 }
 
+.no a{
+	font-family: 'pretendard-Regular';
+	text-decoration:none;
+}
+
 .b{
 	font-family: '양진체';
 }
@@ -148,7 +157,7 @@ body {
 
 mark {
   background-color: transparent;
-  color: inherit; }
+  color: #6799FF; }
 
 input::-moz-focus-inner {
   border: 0;
@@ -205,6 +214,9 @@ body, input, select, textarea {
   @media screen and (max-width: 360px) {
     body, input, select, textarea {
       font-size: 9pt; } }
+.at{
+	color:#FF73B8;
+}
 
 a {
   -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
@@ -237,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
   margin: 0 0 1em 0; }
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    color: #f56a6a;
+    color: #6799FF;
     text-decoration: none;
     border-bottom: 0; }
 
@@ -1742,7 +1754,7 @@ button,
       text-align: center;
       width: 10em; }
       .features article .icon:before {
-        color: #f56a6a;
+        color: #6799FF;
         font-size: 2.75rem;
         position: relative;
         top: 0.05em; }
@@ -1848,7 +1860,7 @@ button,
     position: relative;
     width: calc(33.33333% - 6em); }
     .posts article:before {
-      background: rgba(210, 215, 217, 0.75);
+      background: rgba(103, 153, 255, 0.75);
       content: '';
       display: block;
       height: calc(100% + 6em);
@@ -1857,7 +1869,7 @@ button,
       top: 0;
       width: 1px; }
     .posts article:after {
-      background: rgba(210, 215, 217, 0.75);
+      background: rgba(103, 153, 255, 0.75);
       bottom: -3em;
       content: '';
       display: block;
@@ -2290,7 +2302,7 @@ button,
   color: #FF73B8;
   font-size: 0.9em; }
   #footer .copyright a {
-    color: inherit; }
+    color: #6799FF; }
 
 /* Menu */
 #menu ul {
@@ -2308,7 +2320,7 @@ button,
   text-transform: uppercase; }
   #menu ul a, #menu ul span {
     border-bottom: 0;
-    color: inherit;
+    color: #4C4C4C;
     cursor: pointer;
     display: block;
     font-size: 0.9em;
