@@ -72,10 +72,10 @@ public class CPBoardDAO {
 	}
 	
 	
-	ArrayList<CPBoardDTO> boardlist = null;
 	
 	public ArrayList<CPBoardDTO> selall(String campus){
 		connect();
+		ArrayList<CPBoardDTO> boardlist = null;
 		boardlist=new ArrayList<>();
 		
 		try {
