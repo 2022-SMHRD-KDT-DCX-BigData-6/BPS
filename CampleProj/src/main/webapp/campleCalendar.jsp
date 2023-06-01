@@ -95,7 +95,7 @@ if (member != null) {
 	         });
   			
   		} else {
-  			reload.location();
+  			location.reload();
   			alert("수정 취소");
   		}
   		
