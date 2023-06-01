@@ -71,6 +71,7 @@ if (member != null) {
   	 eventDrop: function(info){
   		console.log(info);
   		if(confirm("'"+info.event.title + "' 일정을 수정 하시겠습니까?")){
+  			alert("수정 성공!");
 	 		title = info.event._def.title;
 	  		start = info.event._instance.range.start;
 	  		end = info.event._instance.range.end;
@@ -93,6 +94,9 @@ if (member != null) {
 	             }
 	         });
   			
+  		} else {
+  			reload.location();
+  			alert("수정 취소");
   		}
   		
   		
@@ -100,9 +104,9 @@ if (member != null) {
       
       // 일정 삭제
       eventClick: function(arg) {
-        if (confirm('Are you sure you want to delete this event?')) {
+        if (confirm("일정을 삭제 하시겠습니까?")) {
           arg.event.remove()
-          
+          alert("삭제 성공");
 	        $.ajax({
 	            url: "calendarDeleteService",
 	            data: {'title':arg.event.title},
@@ -116,11 +120,22 @@ if (member != null) {
 	               console.log("Complete");
 	            }
 	        });
+        } else {
+        	alert("삭제 취소");
         }
+      },   
+        // eventresize
         
-        
-        
-      },
+        eventResize: function(arg){
+        console.log(arg);
+        var result = confirm('날짜를 수정하시겠습니까?');
+        if(result == true){
+           alert('수정성공');
+        } else {
+           location.reload();
+           alert("수정 취소");
+        }
+     },
       
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events
