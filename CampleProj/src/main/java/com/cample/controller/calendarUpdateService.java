@@ -32,79 +32,79 @@ public class calendarUpdateService extends HttpServlet {
 			String[] endArr = end.split(" ");
 
 			switch (startArr[1]) {
-			case "January":
+			case "Jan":
 				startArr[1] = "01";
 				break;
-			case "February":
+			case "Feb":
 				startArr[1] = "02";
 				break;
-			case "March":
+			case "Mar":
 				startArr[1] = "03";
 				break;
-			case "April":
+			case "Apr":
 				startArr[1] = "04";
 				break;
 			case "May":
 				startArr[1] = "05";
 				break;
-			case "June":
+			case "Jun":
 				startArr[1] = "06";
 				break;
-			case "July":
+			case "Jul":
 				startArr[1] = "07";
 				break;
-			case "August":
+			case "Aug":
 				startArr[1] = "08";
 				break;
-			case "September":
+			case "Sep":
 				startArr[1] = "09";
 				break;
-			case "October":
+			case "Oct":
 				startArr[1] = "10";
 				break;
-			case "November":
+			case "Nov":
 				startArr[1] = "11";
 				break;
-			case "December":
+			case "Dec":
 				startArr[1] = "12";
 				break;
 			}
 
 			switch (endArr[1]) {
-			case "January":
+			case "Jan":
 				endArr[1] = "01";
 				break;
-			case "February":
+			case "Feb":
 				endArr[1] = "02";
 				break;
-			case "March":
+			case "Mar":
 				endArr[1] = "03";
 				break;
-			case "April":
+			case "Apr":
 				endArr[1] = "04";
 				break;
 			case "May":
 				endArr[1] = "05";
 				break;
-			case "June":
+			case "Jun":
 				endArr[1] = "06";
 				break;
-			case "July":
+			case "Jul":
 				endArr[1] = "07";
 				break;
-			case "August":
+			case "Aug":
 				endArr[1] = "08";
 				break;
-			case "September":
+			case "Sep":
 				endArr[1] = "09";
 				break;
-			case "October":
+			case "Oct":
 				endArr[1] = "10";
 				break;
-			case "November":
+			case "Nov":
 				endArr[1] = "11";
 				break;
-			case "December":
+			case "Dec":
 				endArr[1] = "12";
 				break;
 			}
