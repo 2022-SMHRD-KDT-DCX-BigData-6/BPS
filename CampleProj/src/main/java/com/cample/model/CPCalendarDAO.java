@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CPCalendarDAO {
-	
+
 	private Connection conn;
 	private PreparedStatement psmt;
 	private ResultSet rs;
@@ -34,7 +34,7 @@ public class CPCalendarDAO {
 		}
 
 	}
-	
+
 	public void close() {
 		try {
 			if (conn != null) {
@@ -50,125 +50,103 @@ public class CPCalendarDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	public int InsertCalendar (String calendar_title, String calendar_start, String calendar_end, String calendar_id) {
+
+	public int InsertCalendar(String calendar_title, String calendar_start, String calendar_end, String calendar_id, String calendar_key) {
 		connect();
-		
+
 		try {
-			
-			String sql = "INSERT INTO cp_calendar VALUES(?, ?, ?, ?)";
+
+			String sql = "INSERT INTO cp_calendar VALUES(?, ?, ?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, calendar_title);
 			psmt.setString(2, calendar_start);
 			psmt.setString(3, calendar_end);
 			psmt.setString(4, calendar_id);
+			psmt.setString(5, calendar_key);
 			
+
 			int result = psmt.executeUpdate();
-			
+
 			return result;
-			
+
 		} catch (SQLException e) {
 			// TODO: handle exception
 		}
-		
+
 		return 0;
 	}
-	
+
 	public ArrayList<CPCalendarDTO> selectAllCalendar(String calendar_id) {
 		connect();
-		
+
 		ArrayList calendarList = new ArrayList<>();
 		try {
-			
+
 			String sql = "SELECT * FROM cp_calendar WHERE calendar_id=?";
-			
+
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, calendar_id);
-			
+
 			rs = psmt.executeQuery();
-			
-			while(rs.next()) {
-			CPCalendarDTO cpDto = new CPCalendarDTO();
-			cpDto.setCalendar_title(rs.getString("calendar_title"));
-			cpDto.setCalendar_start(rs.getString("calendar_start"));
-			cpDto.setCalendar_end(rs.getString("calendar_end"));
-			
-			calendarList.add(cpDto);
+
+			while (rs.next()) {
+				CPCalendarDTO cpDto = new CPCalendarDTO();
+				cpDto.setCalendar_title(rs.getString("calendar_title"));
+				cpDto.setCalendar_start(rs.getString("calendar_start"));
+				cpDto.setCalendar_end(rs.getString("calendar_end"));
+				cpDto.setCalendar_key(rs.getString("calendar_key"));
+
+				calendarList.add(cpDto);
 			}
 		} catch (SQLException e) {
-			
+
 		} finally {
 			close();
 		}
-		
+
 		return calendarList;
-		
+
 	}
-	
-	public int DeleteCalendar(String calendar_title) {
+
+	public int DeleteCalendar(String calendar_key) {
 		connect();
-		
+
 		try {
-			
-			String sql = "DELETE FROM cp_calendar WHERE calendar_title=?";
+
+			String sql = "DELETE FROM cp_calendar WHERE calendar_key=?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, calendar_title);
+			psmt.setString(1, calendar_key);
 
 			int result = psmt.executeUpdate();
-			
+
 			return result;
-			
+
 		} catch (SQLException e) {
 			// TODO: handle exception
 		}
-		
+
 		return 0;
 	}
-	
-	public int UpdateCalendar(String calendar_title,String calendar_start,String calendar_end) {
+
+	public int UpdateCalendar(String calendar_key, String calendar_start, String calendar_end) {
 		connect();
-		
+
 		try {
-			String sql = "UPDATE cp_calendar SET calendar_start = ?, calendar_end = ? WHERE calendar_title=?";
+			String sql = "UPDATE cp_calendar SET calendar_start = ?, calendar_end = ? WHERE calendar_key=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, calendar_start);
 			psmt.setString(2, calendar_end);
-			psmt.setString(3, calendar_title);
-			
+			psmt.setString(3, calendar_key);
+
 			int result = psmt.executeUpdate();
-			
+
 			return result;
-			
+
 		} catch (SQLException e) {
 			// TODO: handle exception
 		}
-		
+
 		return 0;
 	}
-	
-	
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

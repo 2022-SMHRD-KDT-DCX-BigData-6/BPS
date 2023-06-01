@@ -22,11 +22,11 @@ public class calendarDeleteService extends HttpServlet {
 		CPMemberDTO member = (CPMemberDTO) session.getAttribute("loginId");
 
 		if (member != null) {
-			String title = request.getParameter("title");
-			System.out.println(title);
+			String key = request.getParameter("key");
+			System.out.println(key);
 
 			CPCalendarDAO dao = new CPCalendarDAO();
-			int result = dao.DeleteCalendar(title);
+			int result = dao.DeleteCalendar(key);
 
 			if (result > 0) {
 				System.out.println("삭제성공");

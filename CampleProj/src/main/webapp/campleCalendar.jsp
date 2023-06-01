@@ -21,6 +21,8 @@ if (member != null) {
 	calendarList = cpDao.selectAllCalendar(member.getMem_id());
 }%>
 
+
+
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
@@ -35,14 +37,16 @@ if (member != null) {
       selectable: true,
       selectMirror: true,
       select: function(arg) { // 일정 생성
-        var title = prompt('Event Title:');
+        var title = prompt('일정을 입력해주세요 : ');
       	
         if (title) {
-          calendar.addEvent({
+        	var uniqueKey = Date.now();
+            calendar.addEvent({
+            id: uniqueKey,
             title: title,
             start: arg.start,
             end: arg.end,
-            allDay: arg.allDay
+            allDay: arg.allDay,
           })
           
           $.ajax({
@@ -51,6 +55,7 @@ if (member != null) {
             	'title':title,  
             	'start':arg.startStr,
             	'end':arg.endStr,
+            	'id':calendar.getEventById(uniqueKey)._def.publicId
               },
               success: function(data) {
                  console.log("success");
@@ -70,18 +75,18 @@ if (member != null) {
    // 일정수정
   	 eventDrop: function(info){
   		console.log(info);
-  		if(confirm("'"+info.event.title + "' 일정을 수정 하시겠습니까?")){
-  			alert("수정 성공!");
+  		if(confirm("일정을 옮기시겠습니까?")){
 	 		title = info.event._def.title;
 	  		start = info.event._instance.range.start;
 	  		end = info.event._instance.range.end;
 	  		
+	  		
 	  		$.ajax({
 	             url: "calendarUpdateService",
 	             data: {
-	             	'title' : info.event._def.title,
 	             	'start' : info.event._instance.range.start,
-	             	'end' : info.event._instance.range.end
+	             	'end' : info.event._instance.range.end,
+	             	'key' : info.event._def.publicId
 	             },
 	             success: function(data) {
 	                console.log("success");
@@ -96,20 +101,47 @@ if (member != null) {
   			
   		} else {
   			location.reload();
-  			alert("수정 취소");
   		}
   		
   		
   	},
-      
+  	
+  	// eventresize
+  	
+  		eventResize: function(arg){
+  		console.log(arg);
+  		var result = confirm('일정을 수정하시겠습니까?');
+  		if(result == true){
+  			
+  			$.ajax({
+	             url: "calendarUpdateService",
+	             data: {
+	             	'start' : arg.event._instance.range.start,
+	             	'end' : arg.event._instance.range.end,
+	             	'key' : arg.event._def.publicId
+	             },
+	             success: function(data) {
+	                console.log("success");
+	             },
+	             error: function(xhr, status) {
+	                console.log("Failed");
+	             },
+	             complete: function(xhr, status) {
+	                console.log("Complete");
+	             }
+	         });
+  		} else {
+  			location.reload();
+  		}
+  	},
+     
       // 일정 삭제
       eventClick: function(arg) {
-        if (confirm("일정을 삭제 하시겠습니까?")) {
+        if (confirm('일정을 삭제하시겠습니까?')) {
           arg.event.remove()
-          alert("삭제 성공");
 	        $.ajax({
 	            url: "calendarDeleteService",
-	            data: {'title':arg.event.title},
+	            data: {'key':arg.event._def.publicId},
 	            success: function(data) {
 	               console.log("success");
 	            },
@@ -120,28 +152,16 @@ if (member != null) {
 	               console.log("Complete");
 	            }
 	        });
-        } else {
-        	alert("삭제 취소");
         }
-      },   
-        // eventresize
         
-        eventResize: function(arg){
-        console.log(arg);
-        var result = confirm('날짜를 수정하시겠습니까?');
-        if(result == true){
-           alert('수정성공');
-        } else {
-           location.reload();
-           alert("수정 취소");
-        }
-     },
+      },
       
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events
       events: [
     	  <%for (int i = 0; i < calendarList.size(); i++) {%>
       	{
+      		id: '<%=calendarList.get(i).getCalendar_key()%>',
       		title: '<%=calendarList.get(i).getCalendar_title()%>',
       		start: '<%=calendarList.get(i).getCalendar_start()%>',
       		end: '<%=calendarList.get(i).getCalendar_end()%>'
@@ -153,7 +173,7 @@ if (member != null) {
 
     calendar.render();
   });
-
+  
 </script>
 <style>
 body {

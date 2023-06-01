@@ -14,13 +14,13 @@
 <script src="https://kit.fontawesome.com/652d42f858.js" crossorigin="anonymous"></script>
 </head>
 <body class="is-preload">
-										<%
-											CPMemberDTO loginId =(CPMemberDTO)session.getAttribute("loginId");
-											if (loginId != null) {
-												System.out.println(loginId.getMem_id());
-												System.out.println(loginId.getMem_college());
-											}
-										%>
+	<%
+		CPMemberDTO loginId =(CPMemberDTO)session.getAttribute("loginId");
+		if (loginId != null) {
+			System.out.println(loginId.getMem_id());
+			System.out.println(loginId.getMem_college());
+		}
+	%>
 	
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -139,7 +139,8 @@
 	const input = new Array(<%= projList.size()%>); 
 	const deleteBtn = new Array(<%= projList.size()%>);
 	const updateBtn = new Array(<%= projList.size()%>);
-
+	console.log(listBox);
+	console.log(listBox);
 	<% for (int i = 0; i < projList.size(); i++ ) { %>
 		div[<%=i%>] = document.createElement("div");
 		div[<%=i%>].setAttribute("id", <%= projList.get(i).getId()%>)
@@ -205,4 +206,5 @@
 			});
 		});
 	<%} %>
+	</script>
 </html>

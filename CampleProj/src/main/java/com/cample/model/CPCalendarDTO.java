@@ -6,13 +6,16 @@ public class CPCalendarDTO {
 	private String calendar_start;
 	private String calendar_end;
 	private String calendar_id;
-	
-	public CPCalendarDTO(String calendar_title, String calendar_start, String calendar_end, String calendar_id) {
+	private String calendar_key;
+
+	public CPCalendarDTO(String calendar_title, String calendar_start, String calendar_end, String calendar_id,
+			String calendar_key) {
 		super();
 		this.calendar_title = calendar_title;
 		this.calendar_start = calendar_start;
 		this.calendar_end = calendar_end;
 		this.calendar_id = calendar_id;
+		this.calendar_key = calendar_key;
 	}
 
 	public CPCalendarDTO() {
@@ -51,12 +54,19 @@ public class CPCalendarDTO {
 		this.calendar_id = calendar_id;
 	}
 
+	public String getCalendar_key() {
+		return calendar_key;
+	}
+
+	public void setCalendar_key(String calendar_key) {
+		this.calendar_key = calendar_key;
+	}
+
 	@Override
 	public String toString() {
 		return "CPCalendarDTO [calendar_title=" + calendar_title + ", calendar_start=" + calendar_start
-				+ ", calendar_end=" + calendar_end + ", calendar_id=" + calendar_id + "]";
+				+ ", calendar_end=" + calendar_end + ", calendar_id=" + calendar_id + ", calendar_key=" + calendar_key
+				+ "]";
 	}
-
-	
 
 }

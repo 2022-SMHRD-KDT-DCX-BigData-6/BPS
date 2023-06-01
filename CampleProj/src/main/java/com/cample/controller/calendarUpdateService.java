@@ -24,9 +24,9 @@ public class calendarUpdateService extends HttpServlet {
 
 		if (member != null) {
 
-			String title = request.getParameter("title");
 			String start = request.getParameter("start");
 			String end = request.getParameter("end");
+			String key = request.getParameter("key");
 
 			String[] startArr = start.split(" ");
 			String[] endArr = end.split(" ");
@@ -113,7 +113,7 @@ public class calendarUpdateService extends HttpServlet {
 			end = endArr[3] + "-" + endArr[1] + "-" + endArr[2];
 
 			CPCalendarDAO dao = new CPCalendarDAO();
-			int result = dao.UpdateCalendar(title, start, end);
+			int result = dao.UpdateCalendar(key, start, end);
 
 			if (result > 0) {
 				System.out.println("수정 성공!");

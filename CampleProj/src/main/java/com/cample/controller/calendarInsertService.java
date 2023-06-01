@@ -26,6 +26,7 @@ public class calendarInsertService extends HttpServlet {
 			String calendar_start = request.getParameter("start");
 			String calendar_end = request.getParameter("end");
 			String id = member.getMem_id();
+			String calendar_key = request.getParameter("id");
 			
 			System.out.println("title : " + title);
 			System.out.println("start : " + calendar_start);
@@ -34,7 +35,7 @@ public class calendarInsertService extends HttpServlet {
 			
 			
 			CPCalendarDAO dao = new CPCalendarDAO();
-			int result = dao.InsertCalendar(title, calendar_start, calendar_end, id);
+			int result = dao.InsertCalendar(title, calendar_start, calendar_end, id, calendar_key);
 			
 			if (result > 0) {
 				System.out.println("일정 등록 성공");
