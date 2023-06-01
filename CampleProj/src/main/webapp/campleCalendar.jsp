@@ -30,7 +30,7 @@ if (member != null) {
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
-      initialDate: '2023-05-01', // 초기 로딩 날짜
+      initialDate: new Date(), // 초기 로딩 날짜
       navLinks: true, // can click day/week names to navigate views
       selectable: true,
       selectMirror: true,
