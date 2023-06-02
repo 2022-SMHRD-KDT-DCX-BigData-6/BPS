@@ -1,3 +1,4 @@
+<%@page import="com.cample.model.CPMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,8 +26,14 @@
 									</ul>
 								</header> 
          <!-- Q16. 게시글 작성 기능(작성된 게시글은 DB에 저장) - 파일업로드 cos.jar 사용 -->
+         <%
+         	CPMemberDTO member=(CPMemberDTO)session.getAttribute("loginId");
+         	String writer=member.getMem_name();
+         	
+         %>
+         
          <div id = "board">
-            <form action="WriteService" method="post" >
+            <form action="WriteService?writer=<%=writer %>" method="post" >
             <!-- enctype 기본값:application/x-www-form-urlencoded  
             					> key value 형태로 데이터 전송 
             				: 파일 업로드 시 multipart/form-data
@@ -40,10 +47,10 @@
                   <td>제목</td>
                   <td><input type="text" name="title"> </td>
                </tr>
-               <tr>
+              <!--  <tr>
                   <td>작성자</td>
                   <td><input  type="text" name="writer"> </td>
-               </tr>
+               </tr> -->
                <tr>
                   <td colspan="2">내용</td>
                </tr>

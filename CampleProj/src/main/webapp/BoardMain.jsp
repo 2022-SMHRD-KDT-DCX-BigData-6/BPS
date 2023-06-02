@@ -24,7 +24,9 @@
       
 </head>
 <body>   
+
 <header id="header">
+								
 									<strong class="f">HomePage</strong>
 									<ul class="icons">
 										<li><a href="https://twitter.com" target=”_blank” class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>

@@ -1,3 +1,7 @@
+<%@page import="com.cample.model.CPMemberDTO"%>
+<%@page import="com.cample.model.CPCommentDAO"%>
+<%@page import="com.cample.model.CPCommentDTO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.cample.model.CPBoardDAO"%>
 <%@page import="com.cample.model.CPBoardDTO"%>
 
@@ -38,15 +42,25 @@
 				String num1 = boar.getNum();
 				System.out.print("DB에서 넘어온 num : " + num1);
 		%>
+		
+		<%
+			List<CPCommentDTO> board_list=new CPCommentDAO().getcomments(num1);
+			System.out.print(board_list);
+		%>
+		
+		<% 
+			CPMemberDTO member=(CPMemberDTO)session.getAttribute("loginId");
+			String name=member.getMem_name();
+		%>
          <!-- Q19. 게시글 세부내용 조회 기능 -->   
          <div id = "board">
             <table id="list">
                <tr>
-                  <td>제목: <%=boar.getTitle() %> </td>
+                  <td colspan="2">제목: <%=boar.getTitle() %> </td>
                   
                </tr>
                <tr>
-                   <td>작성자: <%=boar.getWriter() %> </td>
+                   <td colspan="2">작성자: <%=boar.getWriter() %> </td>
                </tr>
                <tr>
                   <td colspan="2">내용</td>
@@ -58,6 +72,30 @@
                		<%=boar.getContent() %>      
                   </td>
                </tr>
+               
+               <tr>
+                   <td colspan="2"><h3>댓글 쓰기</h3> </td>
+               </tr>
+               <tr>
+               		<td colspan="2"> <form action="WriteComment?num=<%=num1 %>&name=<%=name %>" method="post">
+               		<input type="text" name="comments">
+               		<input type="submit" value="작성하기">
+               		</form>
+               		 </td>
+               </tr> 
+               <tr>
+                   <td><h3>댓글</h3>  </td>
+                   <td><h3>작성자</h3>  </td>
+               </tr>
+               <%for(int i=0; i<board_list.size(); i++){ %>
+               <tr>
+               		<td>
+               			<%=board_list.get(i).getComments() %>
+               		</td>
+               		<td><%=board_list.get(i).getName() %></td>
+               </tr>
+               <%} %>
+               
                <tr>
                   <td colspan="2"><a href="BoardMain.jsp"><button>뒤로가기</button></a></td>
                </tr>

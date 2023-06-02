@@ -49,7 +49,7 @@ public class CPBoardDAO {
 		}	
 	}
 	
-	public int boardUpload(CPBoardDTO dto, String campus) {
+	public int boardUpload(CPBoardDTO dto, String campus, String writer) {
 		connect();
 		int cnt=0;
 		try {
@@ -57,7 +57,7 @@ public class CPBoardDAO {
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, dto.getNum());
 			psmt.setString(2, dto.getTitle());
-			psmt.setString(3, dto.getWriter());
+			psmt.setString(3, writer);
 			
 			psmt.setString(4, dto.getContent());
 			psmt.setString(5, campus);

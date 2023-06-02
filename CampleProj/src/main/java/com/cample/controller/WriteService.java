@@ -38,7 +38,7 @@ public class WriteService extends HttpServlet {
 			CPBoardDTO dto = new CPBoardDTO(num, title, writer, content);
 
 			CPBoardDAO dao = new CPBoardDAO();
-			int cnt = dao.boardUpload(dto, campus);
+			int cnt = dao.boardUpload(dto, campus,writer);
 
 			/* boardDTO com = dao.selectMember(title, writer, content); */
 
