@@ -26,21 +26,21 @@ public class WriteComment extends HttpServlet {
 		System.out.println(comments);
 		System.out.println(name);
 		 
-		
-		CPCommentDTO dto = new CPCommentDTO(comments);
-		CPCommentDAO dao= new CPCommentDAO();
-		int cnt=dao.commentUpload(dto,num,name);
-		
-		if(cnt>0) {
-			/*
-			 * HttpSession session=request.getSession(); session.setAttribute("com", com);
-			 */
-			System.out.println("success");
+		if(comments!="") {
+			CPCommentDTO dto = new CPCommentDTO(comments);
+			CPCommentDAO dao= new CPCommentDAO();
+			int cnt=dao.commentUpload(dto,num,name);
+			
+			if(cnt>0) {
+				/*
+				 * HttpSession session=request.getSession(); session.setAttribute("com", com);
+				 */
+				System.out.println("success");
+			}
+			else {
+				System.out.println("fail");
+			}
 		}
-		else {
-			System.out.println("fail");
-		}
-		
 		response.sendRedirect("BoardMain.jsp");
 		
 		
