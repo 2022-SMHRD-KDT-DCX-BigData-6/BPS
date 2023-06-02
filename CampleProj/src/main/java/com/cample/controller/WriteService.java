@@ -35,7 +35,7 @@ public class WriteService extends HttpServlet {
 		 * System.out.println("내용"+content);
 		 */
 
-		if(num!=""&&title!=""&&content!="") {
+		
 			if (member != null) {
 				
 				
@@ -63,7 +63,7 @@ public class WriteService extends HttpServlet {
 			} else {
 				System.out.println("로그인을 해주세요~!");
 			}
-		}
+			
 		response.sendRedirect("BoardMain.jsp");
 	}
 

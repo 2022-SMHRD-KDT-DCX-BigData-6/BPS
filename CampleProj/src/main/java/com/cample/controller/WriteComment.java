@@ -26,7 +26,7 @@ public class WriteComment extends HttpServlet {
 		System.out.println(comments);
 		System.out.println(name);
 		 
-		if(comments!="") {
+		
 			CPCommentDTO dto = new CPCommentDTO(comments);
 			CPCommentDAO dao= new CPCommentDAO();
 			int cnt=dao.commentUpload(dto,num,name);
@@ -40,7 +40,7 @@ public class WriteComment extends HttpServlet {
 			else {
 				System.out.println("fail");
 			}
-		}
+		
 		response.sendRedirect("BoardMain.jsp");
 		
 		

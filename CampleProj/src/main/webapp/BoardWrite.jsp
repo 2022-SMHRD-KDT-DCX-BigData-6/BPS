@@ -14,7 +14,24 @@
       <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
       <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
-		
+		<script>
+			function boardcheck() {
+				let inputs=document.inputForm;
+				if(!inputs.num.value){
+					alert("번호를 입력하세요");
+					return false;
+				}
+				if(!inputs.title.value){
+					alert("제목을 입력하세요");
+					return false;
+				}
+				if(!inputs.content.value){
+					alert("번호를 입력하세요");
+					return false;
+				}
+				
+			}
+		</script>
 </head>
 <body>
 <header id="header">
@@ -35,7 +52,7 @@
          %>
          
          <div id = "board">
-            <form action="WriteService?writer=<%=writer %>" method="post" >
+            <form action="WriteService?writer=<%=writer %>" method="post" name="inputForm" onsubmit="return boardcheck();">
             <!-- enctype 기본값:application/x-www-form-urlencoded  
             					> key value 형태로 데이터 전송 
             				: 파일 업로드 시 multipart/form-data

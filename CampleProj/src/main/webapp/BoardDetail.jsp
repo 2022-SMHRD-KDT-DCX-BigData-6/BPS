@@ -19,6 +19,18 @@
       <link rel="stylesheet" href="assets/css/main.css" />
       <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
       <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	
+		<script>
+			function commentcheck() {
+
+				let inputs=document.inputForm;
+				if(!inputs.comments.value){
+					alert("댓글을 입력하세요");
+					return false;
+				}
+			}
+		</script>
+
 </head>
 <body>
 <header id="header">
@@ -77,7 +89,7 @@
                    <td colspan="2"><h3>댓글 쓰기</h3> </td>
                </tr>
                <tr>
-               		<td colspan="2"> <form action="WriteComment?num=<%=num1 %>&name=<%=name %>" method="post">
+               		<td colspan="2"> <form action="WriteComment?num=<%=num1 %>&name=<%=name %>" method="post" name="inputForm" onsubmit="return commentcheck();">
                		<input type="text" name="comments">
                		<input type="submit" value="작성하기">
                		</form>
