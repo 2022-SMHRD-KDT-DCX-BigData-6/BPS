@@ -2,15 +2,22 @@
 <%@page import="com.cample.model.CPCalendarDAO"%>
 <%@page import="com.cample.model.CPCalendarDTO"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.cample.model.CPProjectDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.cample.model.CPProjectDAO"%>
+<%@page import="com.cample.model.CPMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset='utf-8' />
-<link href='assets/css/calMain.css' rel='stylesheet' />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main3.css" />
 <script src='assets/js/calMain.js'></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<title>Calendar</title>
+<script src="https://kit.fontawesome.com/652d42f858.js" crossorigin="anonymous"></script>
 <script>
 
 <%CPMemberDTO member = (CPMemberDTO) session.getAttribute("loginId");
@@ -189,9 +196,114 @@ body {
 }
 </style>
 </head>
-<body>
+<body class="is-preload">
+	<%
+		CPMemberDTO loginId =(CPMemberDTO)session.getAttribute("loginId");
+		if (loginId != null) {
+			System.out.println(loginId.getMem_id());
+			System.out.println(loginId.getMem_college());
+		}
+	%>
+	
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-	<div id='calendar'></div>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
 
+							<!-- Header -->
+								<header id="header">
+								<h1 class="z">Calendar</h1>
+						</div>
+<!-- 						  		<button id="add"><i class="fa-solid fa-plus"></i></button>
+									<div class="dropzone-container">
+										<div class="dropzone" id="create">
+											<h3 class="list">List</h3>
+										</div>
+										<div class="dropzone" id="todo">
+											<h3 class="todo">To-Do</h3>
+										</div>
+										<div class="dropzone" id="inprogress">
+											<h3 class="inprogress">In-Progress</h3>
+										</div>
+										<div class="dropzone" id="done">
+											<h3 class="done">Completed</h3>
+										</div>
+									</div>   -->
+									
+									<div id='calendar'></div>
+									
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2 class="b">Menu</h2>
+									</header>
+									<ul>
+										<li><a href="main.jsp" class="a">홈페이지</a></li>
+										<%
+											if (loginId == null) {%>
+												<li><a href="school.html" class="a">학교 별 학과 일정</a></li>
+												<%} else {
+														if (loginId.getMem_college().equals("전남대학교")){%>
+															<li><a href="전남대학교_페이지.html" class="a">전남대학교</a></li>
+														<%} else if (loginId.getMem_college().equals("서울대학교")) {%>
+															<li><a href="서울대학교_페이지.html" class="a">서울대학교</a></li>
+														<%} else if (loginId.getMem_college().equals("광주대학교")) {%>
+															<li><a href="광주대학교_페이지.html" class="a">광주대학교</a></li>
+														<%} else {%>
+															<li><a href="school.html" class="a">학교 별 학과일정</a></li>
+														<%}
+												}
+										%>
+										<li><a href="Kanban.jsp" class="a">일정관리</a></li>
+										<li><a href="campleCalendar.jsp" class="a">캘린더</a></li>
+										<li>
+											<span class="opener">게시판</span>
+											<ul>
+												<li><a href="BoardMain.jsp">자유게시판</a></li>
+												<li><a href="#">홍보게시판</a></li>
+												<li><a href="#">정보게시판</a></li>
+											</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+
+							<!-- Section -->
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	
 </body>
+
 </html>

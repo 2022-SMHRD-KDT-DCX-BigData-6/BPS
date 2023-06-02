@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main2.css" />
-<title>test</title>
+<title>일정관리</title>
 <script src="https://kit.fontawesome.com/652d42f858.js" crossorigin="anonymous"></script>
 </head>
 <body class="is-preload">
