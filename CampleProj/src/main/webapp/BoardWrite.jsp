@@ -26,7 +26,7 @@
 					return false;
 				}
 				if(!inputs.content.value){
-					alert("번호를 입력하세요");
+					alert("내용을 입력하세요");
 					return false;
 				}
 				
@@ -83,6 +83,7 @@
                
                <tr>
                   <td colspan="2">
+                  
                      <input type="reset" value="초기화">
                      <input type="submit" value="작성하기">
                   </td>
