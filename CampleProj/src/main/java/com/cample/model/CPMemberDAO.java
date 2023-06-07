@@ -17,7 +17,7 @@ public class CPMemberDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@project-db-stu.smhrd.com:1524:xe";
+			String url = "jdbc:oracle:thin:@project-db-cgi.smhrd.com:1524:xe";
 			String user = "seogu_0526_4";
 			String password = "smhrd4";
 			conn = DriverManager.getConnection(url, user, password);

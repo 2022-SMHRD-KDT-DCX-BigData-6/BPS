@@ -22,7 +22,7 @@ public class CPCommentDAO {
 			// 데이터베이스 연결
 			// localhost : 데이터베이스 서버의 주소
 			// 1521 : 데이터베이스 서버의 포트번호
-			String url = "jdbc:oracle:thin:@project-db-stu.smhrd.com:1524:xe";
+			String url = "jdbc:oracle:thin:@project-db-cgi.smhrd.com:1524:xe";
 			String user = "seogu_0526_4";
 			String password = "smhrd4";
 			conn=DriverManager.getConnection(url,user,password);
