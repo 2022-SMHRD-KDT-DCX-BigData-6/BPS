@@ -4,13 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-      <title>글쓰기</title>
+      <title>Forty by HTML5 UP</title>
       <meta charset="utf-8" />
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
       <!-- <link rel="stylesheet" href="assets/css1/main.css" /> -->
       <link rel="stylesheet" href="assets/css1/board.css" />
-      <link rel="stylesheet" href="assets/css/main4.css" />
+      <link rel="stylesheet" href="assets/css/main.css" />
       <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
       <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
@@ -35,8 +35,14 @@
 </head>
 <body>
 <header id="header">
-									<h1 class="z">Board Form</h1>
-
+									<strong class="f">HomePage</strong>
+									<ul class="icons">
+										<li><a href="https://twitter.com" target=”_blank” class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://www.facebook.com/" target=”_blank” class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="https://www.youtube.com/" target=”_blank” class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
+										<li><a href="https://www.instagram.com/" target=”_blank” class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://github.com/" target=”_blank” class="icon brands fa-brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
 								</header> 
          <!-- Q16. 게시글 작성 기능(작성된 게시글은 DB에 저장) - 파일업로드 cos.jar 사용 -->
          <%
@@ -46,9 +52,6 @@
          %>
          
          <div id = "board">
-         <div class="find-btn">
-         	<input type="submit" value="작성하기" class="button">
-         </div>
             <form action="WriteService?writer=<%=writer %>" method="post" name="inputForm" onsubmit="return boardcheck();">
             <!-- enctype 기본값:application/x-www-form-urlencoded  
             					> key value 형태로 데이터 전송 
@@ -56,11 +59,11 @@
             					> 이미지 등과 같은 용량이 큰 데이터를 전송-->
             <table id="list">
             	<tr>
-                  <td><h3 class="a1">번호</h3></td>
+                  <td>번호</td>
                   <td><input type="text" name="num"> </td>
                </tr>
                <tr>
-                  <td><h3 class="a1">제목</h3></td>
+                  <td>제목</td>
                   <td><input type="text" name="title"> </td>
                </tr>
               <!--  <tr>
@@ -68,7 +71,7 @@
                   <td><input  type="text" name="writer"> </td>
                </tr> -->
                <tr>
-                  <td colspan="2"><h3 class="a1">내용</h3></td>
+                  <td colspan="2">내용</td>
                </tr>
                
                <tr>
@@ -81,10 +84,8 @@
                <tr>
                   <td colspan="2">
                   
-                  
-                  <div class="find-btn2">
-                     <input type="reset" value="초기화" class="button">
-                  </div>
+                     <input type="reset" value="초기화">
+                     <input type="submit" value="작성하기">
                   </td>
                </tr>
             </table>

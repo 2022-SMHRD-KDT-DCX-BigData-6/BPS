@@ -4,46 +4,45 @@
 <%@page import="java.util.List"%>
 <%@page import="com.cample.model.CPBoardDAO"%>
 <%@page import="com.cample.model.CPBoardDTO"%>
-
+<%@page import="com.cample.model.CPMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<head>
-      <title>Forty by HTML5 UP</title>
-      <meta charset="utf-8" />
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-      <!-- <link rel="stylesheet" href="assets/css1/main.css" /> -->
-      <link rel="stylesheet" href="assets/css1/board.css" />
-      <link rel="stylesheet" href="assets/css/main.css" />
-      <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-      <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	
-		<script>
-			function commentcheck() {
+	<head>
+		<title>CAMPLE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css1/board.css" />
+		<link rel="stylesheet" href="assets/css/main4.css" />
+	</head>
+	<body class="is-preload">
 
-				let inputs=document.inputForm;
-				if(!inputs.comments.value){
-					alert("댓글을 입력하세요");
-					return false;
-				}
-			}
-		</script>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-</head>
-<body>
-<header id="header">
-									<strong class="f">HomePage</strong>
-									<ul class="icons">
-										<li><a href="https://twitter.com" target=”_blank” class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.facebook.com/" target=”_blank” class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="https://www.youtube.com/" target=”_blank” class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
-										<li><a href="https://www.instagram.com/" target=”_blank” class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="https://github.com/" target=”_blank” class="icon brands fa-brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-								</header> 
-		<%
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<h1 class="z">Noticeboard</h1>
+										<%
+											CPMemberDTO loginId =(CPMemberDTO)session.getAttribute("loginId");
+											if (loginId != null) {
+												System.out.println(loginId.getMem_id());
+												System.out.println(loginId.getMem_college());
+											}
+										%>
+										
+
+							<!-- Section -->
+
+							<!-- Section -->
+
+						</div>
+								<%
 		String num = null;
 				if(request.getParameter("num")!=null){
 				num=request.getParameter("num");
@@ -66,60 +65,147 @@
 		%>
          <!-- Q19. 게시글 세부내용 조회 기능 -->   
          <div id = "board">
+         <hr class="hr1">
             <table id="list">
                <tr>
-                  <td colspan="2">제목: <%=boar.getTitle() %> </td>
+                  <td colspan="2"><h3 class="a1">제목: <%=boar.getTitle() %> </h3></td>
                   
                </tr>
                <tr>
-                   <td colspan="2">작성자: <%=boar.getWriter() %> </td>
+                   <td colspan="2" class="a">작성자: <%=boar.getWriter() %> </td>
                </tr>
                <tr>
-                  <td colspan="2">내용</td>
+                  <td colspan="2" class="a"><h3 class="a1">내용</h3></td>
                   
                </tr>
                
                <tr>
-                  <td colspan="2">
+                  <td colspan="2" class="a">
                		<%=boar.getContent() %>      
                   </td>
                </tr>
-               
+               </table>
+               <hr class="hr1">
+               <table>
                <tr>
-                   <td colspan="2"><h3>댓글 쓰기</h3> </td>
+                   <td colspan="2"><h3 class="a1">댓글 쓰기</h3> </td>
                </tr>
                <tr>
-               		<td colspan="2"> <form action="WriteComment?num=<%=num1 %>&name=<%=name %>" method="post" name="inputForm" onsubmit="return commentcheck();">
+               		<td colspan="2"> <form class="fo" action="WriteComment?num=<%=num1 %>&name=<%=name %>" method="post" name="inputForm" onsubmit="return commentcheck();">
                		<input type="text" name="comments">
-               		<input type="submit" value="작성하기">
+               	<div class="btn-find3">
+               		<input type="submit" value="작성하기" class="button">
+               	</div>
                		</form>
                		 </td>
                </tr> 
+               </table>
+               <hr class="hr1">
+               <table>
                <tr>
-                   <td><h3>댓글</h3>  </td>
-                   <td><h3>작성자</h3>  </td>
+                   <td><h3 class="a1">댓글</h3>  </td>
+                   <td><h3 class="a1">작성자</h3>  </td>
                </tr>
                <%for(int i=0; i<board_list.size(); i++){ %>
                <tr>
-               		<td>
+               		<td class="a">
                			<%=board_list.get(i).getComments() %>
                		</td>
-               		<td><%=board_list.get(i).getName() %></td>
+               		<td class="a"><%=board_list.get(i).getName() %></td>
                </tr>
                <%} %>
                
                <tr>
-                  <td colspan="2"><a href="BoardMain.jsp"><button>뒤로가기</button></a></td>
+                  <td colspan="2"><a href="BoardMain.jsp"><button class="button" style="	display: inline-block;
+	text-align: center;">뒤로가기</button></a></td>
                </tr>
-            </table>
+               </table>
          </div>
-         <!-- Scripts -->
-         <script src="assets/js1/jquery.min.js"></script>
-         <script src="assets/js1/jquery.scrolly.min.js"></script>
-         <script src="assets/js1/jquery.scrollex.min.js"></script>
-         <script src="assets/js1/skel.min.js"></script>
-         <script src="assets/js1/util.js"></script>
-         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-         <script src="assets/js1/main.js"></script>
-</body>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2 class="b">Menu</h2>
+									</header>
+									<ul>
+										<li><a href="main.jsp" class="a">홈페이지</a></li>
+										<%
+											if (loginId == null) {%>
+												<li><a href="school.html" class="a">학교 별 학과 일정</a></li>
+												<%} else {
+														if (loginId.getMem_college().equals("전남대학교")){%>
+															<li><a href="전남대학교_페이지.html" class="a">전남대학교</a></li>
+														<%} else if (loginId.getMem_college().equals("서울대학교")) {%>
+															<li><a href="서울대학교_페이지.html" class="a">서울대학교</a></li>
+														<%} else if (loginId.getMem_college().equals("광주대학교")) {%>
+															<li><a href="광주대학교_페이지.html" class="a">광주대학교</a></li>
+														<%} else {%>
+															<li><a href="school.html" class="a">학교 별 학과일정</a></li>
+														<%}
+												}
+										%>
+										<li><a href="Kanban.jsp" class="a">일정관리</a></li>
+										<li><a href="campleCalendar.jsp" class="a">캘린더</a></li>
+										<li>
+											<span class="opener">게시판</span>
+											<ul>
+												<li><a href="BoardMain.jsp">자유게시판</a></li>
+												<li><a href="#">홍보게시판</a></li>
+												<li><a href="#">정보게시판</a></li>
+											</ul>
+<!-- 										</li>
+										<li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li>
+										<li>
+											<span class="opener">Another Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Maximus Erat</a></li>
+										<li><a href="#">Sapien Mauris</a></li>
+										<li><a href="#">Amet Lacinia</a></li>
+									</ul> -->
+								</nav>
+								
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+
+							<!-- Section -->
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>

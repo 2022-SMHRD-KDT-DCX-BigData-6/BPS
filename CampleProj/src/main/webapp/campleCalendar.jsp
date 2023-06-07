@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="assets/css/main3.css" />
 <script src='assets/js/calMain.js'></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<title>Calendar</title>
+<title>캘린더</title>
 <script src="https://kit.fontawesome.com/652d42f858.js" crossorigin="anonymous"></script>
 <script>
 
@@ -183,12 +183,12 @@ if (member != null) {
   
 </script>
 <style>
-body {
+/* body {
 	margin: 40px 10px;
 	padding: 0;
 	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
 	font-size: 14px;
-}
+} */
 
 #calendar {
 	max-width: 1100px;

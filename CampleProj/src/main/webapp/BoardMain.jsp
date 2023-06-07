@@ -1,45 +1,40 @@
+<%@page import="com.cample.model.CPMemberDTO"%>
 <%@page import="com.cample.model.CPBoardDAO"%>
 <%@page import="com.cample.model.CPBoardDTO"%>
 <%@page import="com.cample.model.CPMemberDTO"%>
-
-
-
 <%@page import="java.util.List"%>
-
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<head>
-      <title>Forty by HTML5 UP</title>
-      <meta charset="utf-8" />
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <!-- <link rel="stylesheet" href="assets/css1/main.css" /> -->
-      <link rel="stylesheet" href="assets/css1/board.css" />
-      <link rel="stylesheet" href="assets/css/main.css" />
-      <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-      <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-      
-</head>
-<body>   
+	<head>
+		<title>게시판</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css1/board.css" />
+		<link rel="stylesheet" href="assets/css/main4.css" />
+	</head>
+	<body class="is-preload">
 
-<header id="header">
-								
-									<strong class="f">HomePage</strong>
-									<ul class="icons">
-										<li><a href="https://twitter.com" target=”_blank” class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.facebook.com/" target=”_blank” class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="https://www.youtube.com/" target=”_blank” class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
-										<li><a href="https://www.instagram.com/" target=”_blank” class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="https://github.com/" target=”_blank” class="icon brands fa-brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-								</header>   
-         <!-- Q17. 게시글 목록 조회 기능 -->
-         <!-- webboard 테이블에 있는 모든 게시글 출력
-         	select * from webboard order by b_date desc -->
-         	<%
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<h1 class="z">Noticeboard</h1>
+										<%
+											CPMemberDTO loginId =(CPMemberDTO)session.getAttribute("loginId");
+											if (loginId != null) {
+												System.out.println(loginId.getMem_id());
+												System.out.println(loginId.getMem_college());
+											}
+										%>
+										         	<%
          	//session 값 가져오기
       			CPMemberDTO member=(CPMemberDTO)session.getAttribute("loginId");
          		ArrayList<CPBoardDTO> board_list = new ArrayList<>();
@@ -48,14 +43,22 @@
          			board_list= dao.selall(member.getMem_college());
          		}
          	%>
-         	
-         <!-- Q18. 게시글 목록 세부페이지 기능(제목을 클릭하면 세부페이지 BoardDetail.jsp로 이동)-->
-         <div id="board">
+							<!-- Banner -->
+
+							<!-- Section -->
+
+							<!-- Section -->
+
+						</div>
+						         <div id="board">
+				<div class="bt">
+		            <a href="BoardWrite.jsp"><button class="button">작성하러가기</button></a>
+		        </div>
             <table id = "list">
                <tr>
-                  <td>번호</td>
-                  <td>제목</td>
-                  <td>작성자</td>
+                  <td><h3 class="a1">번호</h3></td>
+                  <td><h3 class="a1">제목</h3></td>
+                  <td><h3 class="a1">작성자</h3></td>
                   
                </tr>
                
@@ -74,19 +77,91 @@
             
             </table>
             
-            <a href="main.jsp"><button id="writer">홈으로가기</button></a>
-            <a href="BoardWrite.jsp"><button id="writer">작성하러가기</button></a>
          </div>
+					</div>
 
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
 
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
 
-         <!-- Scripts -->
-         <script src="assets/js1/jquery.min.js"></script>
-         <script src="assets/js1/jquery.scrolly.min.js"></script>
-         <script src="assets/js1/jquery.scrollex.min.js"></script>
-         <script src="assets/js1/skel.min.js"></script>
-         <script src="assets/js1/util.js"></script>
-         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-         <script src="assets/js1/main.js"></script>
-</body>
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2 class="b">Menu</h2>
+									</header>
+									<ul>
+										<li><a href="main.jsp" class="a">홈페이지</a></li>
+										<%
+											if (loginId == null) {%>
+												<li><a href="school.html" class="a">학교 별 학과 일정</a></li>
+												<%} else {
+														if (loginId.getMem_college().equals("전남대학교")){%>
+															<li><a href="전남대학교_페이지.html" class="a">전남대학교</a></li>
+														<%} else if (loginId.getMem_college().equals("서울대학교")) {%>
+															<li><a href="서울대학교_페이지.html" class="a">서울대학교</a></li>
+														<%} else if (loginId.getMem_college().equals("광주대학교")) {%>
+															<li><a href="광주대학교_페이지.html" class="a">광주대학교</a></li>
+														<%} else {%>
+															<li><a href="school.html" class="a">학교 별 학과일정</a></li>
+														<%}
+												}
+										%>
+										<li><a href="Kanban.jsp" class="a">일정관리</a></li>
+										<li><a href="campleCalendar.jsp" class="a">캘린더</a></li>
+										<li>
+											<span class="opener">게시판</span>
+											<ul>
+												<li><a href="BoardMain.jsp">자유게시판</a></li>
+												<li><a href="#">홍보게시판</a></li>
+												<li><a href="#">정보게시판</a></li>
+											</ul>
+<!-- 										</li>
+										<li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li>
+										<li>
+											<span class="opener">Another Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Maximus Erat</a></li>
+										<li><a href="#">Sapien Mauris</a></li>
+										<li><a href="#">Amet Lacinia</a></li>
+									</ul> -->
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+
+							<!-- Section -->
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
