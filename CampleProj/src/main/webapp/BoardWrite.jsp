@@ -46,10 +46,10 @@
          %>
          
          <div id = "board">
+            <form action="WriteService?writer=<%=writer %>" method="post" name="inputForm" onsubmit="return boardcheck();">
          <div class="find-btn">
          	<input type="submit" value="작성하기" class="button">
          </div>
-            <form action="WriteService?writer=<%=writer %>" method="post" name="inputForm" onsubmit="return boardcheck();">
             <!-- enctype 기본값:application/x-www-form-urlencoded  
             					> key value 형태로 데이터 전송 
             				: 파일 업로드 시 multipart/form-data
