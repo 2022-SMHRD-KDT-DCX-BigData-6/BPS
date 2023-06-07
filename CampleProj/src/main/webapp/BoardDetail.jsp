@@ -15,6 +15,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css1/board.css" />
 		<link rel="stylesheet" href="assets/css/main4.css" />
+		<script>
+			function commentcheck() {
+
+				let inputs=document.inputForm;
+				if(!inputs.comments.value){
+					alert("댓글을 입력하세요");
+					return false;
+				}
+			}
+		</script>
 	</head>
 	<body class="is-preload">
 
