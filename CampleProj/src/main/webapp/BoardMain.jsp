@@ -52,7 +52,11 @@
 						</div>
 						         <div id="board">
 				<div class="bt">
+				<%if (member != null){ %>
 		            <a href="BoardWrite.jsp"><button class="button">작성하러가기</button></a>
+		            <%}else{ %>
+		            <a href="login.html"><button class="button">작성하러가기</button></a>
+		            <%} %>
 		        </div>
             <table id = "list">
                <tr>
