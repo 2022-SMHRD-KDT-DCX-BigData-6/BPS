@@ -16,19 +16,18 @@
 - Server : Apache Tomcat 9.0
 - Tools : eclipse, SQL Developer, GitGub
 # 4. 유스케이스
+![usecase](./images/usecase.png)
 
-# 5. 서비스 아키텍처
+# 5. ER 다이어그램
+![ERDIAGRAM](./images/ERDIAGRAM.png)
+# 6. 모델 구현
 
-# 6. ER 다이어그램
+# 7. WEB 페이지
 
-# 7. 모델 구현
+# 8. 모델 개발 트러블 슈팅
 
-# 8. WEB 페이지
+# 9. 팀원 단위 업무분담
 
-# 9. 모델 개발 트러블 슈팅
+# 10. 시연영상
 
-# 10. 팀원 단위 업무분담
-
-# 11. 시연영상
-
-# 12. 참고문헌
+# 11. 참고문헌
