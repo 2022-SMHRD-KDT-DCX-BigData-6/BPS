@@ -17,13 +17,25 @@
 - Tools : eclipse, SQL Developer, GitGub
 # 4. 유스케이스
 ![usecase](./images/usecase.png)
-
 # 5. ER 다이어그램
 ![ERDIAGRAM](./images/ERDIAGRAM.png)
-# 6. 모델 구현
-
+# 6. 서비스 흐름도
+![serviceflow](./images/serviceflow.png)
 # 7. WEB 페이지
+- 메인페이지
+![mainpage](./images/mainPage.png)
 
+- 학교페이지
+![schoolPage](./images/schoolPage.png)
+
+- 프로젝트 관리 페이지
+![prjectPage](./images/prjectPage.png)
+
+- 캘린더 페이지
+![calendarPage](./images/calendarPage.png)
+
+- 게시판 페이지
+![boardPage](./images/boardPage.png)
 # 8. 모델 개발 트러블 슈팅
 
 # 9. 팀원 단위 업무분담
