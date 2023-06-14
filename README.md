@@ -15,31 +15,72 @@
 - DB : Oracle
 - Server : Apache Tomcat 9.0
 - Tools : eclipse, SQL Developer, GitGub
+
 # 4. 유스케이스
 ![usecase](./images/usecase.png)
+
 # 5. ER 다이어그램
 ![ERDIAGRAM](./images/ERDIAGRAM.png)
+
 # 6. 서비스 흐름도
 ![serviceflow](./images/serviceflow.png)
+
 # 7. WEB 페이지
 - 메인페이지
+
 ![mainpage](./images/mainPage.png)
 
+
 - 학교페이지
+
 ![schoolPage](./images/schoolPage.png)
 
+
 - 프로젝트 관리 페이지
+
 ![prjectPage](./images/prjectPage.png)
 
+
 - 캘린더 페이지
+
 ![calendarPage](./images/calendarPage.png)
 
+
 - 게시판 페이지
+
+
 ![boardPage](./images/boardPage.png)
-# 8. 모델 개발 트러블 슈팅
 
-# 9. 팀원 단위 업무분담
-
-# 10. 시연영상
-
-# 11. 참고문헌
+# 8. 팀원 단위 업무분담
+- 팀장 : 오명헌
+  - 프로젝트 총괄
+  - 백엔드
+  - 로그인 / 회원가입
+  - 캘린더 일정 등록
+  - 캘린더 일정 삭제
+- 팀원 : 김예진
+  - 프론트엔드
+  - 메인페이지 디자인
+  - 학교페이지 구현
+  - 학교페이지 디자인
+  - 프로젝트 관리 페이지 디자인
+  - 캘린더 페이지 디자인
+  - 게시판 페이지 
+- 팀원 : 김지환
+  - 백엔드
+  - 캘린더 주제 수정
+  - 캘린더 일정 수정
+  - 캘린더 디자인
+- 팀원 : 정환규
+  - 백엔드
+  - 게시판 글 작성
+  - 게시판 글 목록 출력
+  - 게시판 댓글 작성
+  - 게시판 댓글 목록 출력
+- 팀원 : 주시형
+  - 백엔드
+  - 드래그&드롭 기능
+  - 프로젝트 칸반보드 추가
+  - 프로젝트 칸반보드 수정
+  - 프로젝트 칸반보드 삭제
+# 9. 시연영상
