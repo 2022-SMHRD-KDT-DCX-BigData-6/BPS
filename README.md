@@ -8,13 +8,13 @@
 - 대학교별로 필요한 정보를 얻을 수 있는 서비스 제공
 
 # 2. 주요기능
+
+# 3. 개발환경
 - Back-end : Java, Servlet&JSP
 - Front-end : HTML5, CSS3, JavaScript, Jquery
 - DB : Oracle
 - Server : Apache Tomcat 9.0
 - Tools : eclipse, SQL Developer, GitGub
-# 3. 개발환경
-
 # 4. 유스케이스
 
 # 5. 서비스 아키텍처
